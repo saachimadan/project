@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+	<head>
+		<title>Contact List App</title>
+		<!-- @@@@Adding bootstap formating!!!-->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	</head>
+	<body>
+		<!-- @@@@Angulars way of testing if it is working!!!
+		<input ng-model="test">
+		{{test}}
+        -->
+
+        <div class="container" ng-controller="AppController">
+			<h1> Contact list app</h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>name</th>
+						<th>Email</th>
+						<th>Phone Number</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="contact in contactList" >
+						<td> {{contact.name}}</td>
+						<td> {{contact.email}}</td>
+						<td> {{contact.number}}</td>
+					</tr>
+				</tbody>
+			</table>
+        </div>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<!--connecting control.js to index.html-->
+		<script type="text/javascript" src="controllers/controller.js"></script>
+	</body>
+</html>
