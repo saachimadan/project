@@ -14,15 +14,19 @@ mongoose.connect( 'mongodb://localhost/contactList', function (err) {
 //mongoose.connect('mongodb://127.0.0.1:27017/test/contactList');﻿
 
 var contactListSchema = mongoose.Schema({
-name: String, 
+name: String,
 email: String,
 number: String
 }, {collection: 'contactList'});
 
-var ContactList = mongoose.model('ContactList', contactListSchema);﻿
+var contactList = mongoose.model('ContactList', contactListSchema);﻿
 
-
-var ContactList = mongoose.model('contactList', contactListSchema);
+app.get("/contactList", function(req, res) {
+  contactList.find({}, function(err, result) {
+    if(err) res.status(500).json(err);
+    else res.status(200).json(result);
+  });
+});
 
 //static is html, csss, img files
 app.use(express.static(__dirname + "/public"));
